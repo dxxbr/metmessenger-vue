@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomeMenue from '../views/HomeMenueView.vue';
-import AddMenue from '../views/AddMenue.vue';
+import HomeMenu from '../views/HomeMenuView.vue';
+import AddMenu from '../views/AddMenu.vue';
 
 Vue.use(VueRouter);
 
@@ -15,16 +15,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
   },
   {
-    path: '/HomeMenue',
-    name: 'HomeMenue',
+    path: '/HomeMenu',
+    name: 'HomeMenu',
 
-    component: HomeMenue,
+    component: HomeMenu,
   },
   {
     path: '/add',
-    name: 'addMenue',
+    name: 'addMenu',
 
-    component: AddMenue,
+    component: AddMenu,
   },
 ];
 
