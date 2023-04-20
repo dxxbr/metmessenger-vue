@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeMenu from '../views/HomeMenuView.vue';
 import AddMenu from '../views/AddMenu.vue';
+import LoginPage from '../views/LoginPage.vue';
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,12 @@ const routes = [
     name: 'addMenu',
 
     component: AddMenu,
+  },
+  {
+    path: '/login',
+    name: 'LogIn',
+
+    component: LoginPage,
   },
 ];
 

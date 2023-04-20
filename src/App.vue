@@ -3,12 +3,44 @@
     <nav>
       <router-link to="/HomeMenu">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <router-link
+      v-if="!islogin" class="btn long-btn" id="login-btn" to="/login">Login</router-link>
     </nav>
     <h1 class="bigheading">Meat</h1>
     <hr>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      islogin: false,
+    };
+  },
+  created() {
+    this.parseRoute();
+  },
+  methods: {
+    parseRoute() {
+      console.log(window.location.pathname);
+      if (window.location.pathname === '/login') {
+        this.islogin = true;
+      } else {
+        this.islogin = false;
+      }
+    },
+  },
+  watch: {
+    $route() {
+      this.parseRoute();
+    },
+  },
+};
+
+</script>
 
 <style lang="scss">
 
@@ -44,6 +76,12 @@ button {
 #add-btn {
   position: absolute;
   bottom: 16px;
+  right: 16px;
+}
+
+#login-btn {
+  position: absolute;
+  top: 16px;
   right: 16px;
 }
 

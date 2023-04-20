@@ -1,25 +1,37 @@
 <template>
-    <div>
+    <div class="about">
         <form>
-            <h2>Add User</h2>
+            <h1>Login</h1>
             <label for="contactID">
                 <input name="contactID" id="contactID" placeholder="User-token" required>
                 <br>
             </label>
-            <label for="NickName">
-                <input name="NickName" id="NickName" placeholder="Nickname (optional)">
+            <label for="Password">
+                <input name="Password" id="Password" placeholder="Password" required>
             </label>
-            <button class="btn long-btn">Add User</button>
+            <button class="btn long-btn">Login</button>
         </form>
     </div>
-</template>
+  </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      islogin: true,
+    };
+  },
+};
+
+</script>
 
 <style lang="scss" scoped>
     #contactID {
         text-align: center;
     }
 
-    #NickName {
+    #Password {
         text-align: center;
     }
 
