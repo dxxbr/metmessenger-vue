@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    // this.$store.state.[variable]
+    // this.$store.commit('setVarible', 'new value')
     jwttoken: '',
     usertoken: '',
     contacts: [],
@@ -17,6 +19,12 @@ export default new Vuex.Store({
     setJwtToken(state, token) {
       state.jwttoken = token;
     },
+    setUserToken(state, token) {
+      state.usertoken = token;
+    },
+    setLoggedIn(state, bool) {
+      state.loggedIn = bool;
+    }
   },
   actions: {
   },

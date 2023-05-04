@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/HomeMenu">Home</router-link> |
+      <router-link to="/ChatMenu">Chats</router-link> |
       <router-link to="/about">About</router-link>
       <router-link
       v-if="!islogin" class="btn long-btn" id="login-btn" to="/login">Login</router-link>

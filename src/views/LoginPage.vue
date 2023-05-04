@@ -1,31 +1,33 @@
 <template>
     <div class="about">
-      {{ accessToken }}
         <form>
             <h1>Login</h1>
             <label for="contactID">
                 <input
                 name="contactID"
                 id="contactID"
-                placeholder="User-token"
+                placeholder="Username"
                 required
                 v-model="username">
                 <br>
             </label>
             <label for="Password">
                 <input
-                type="password"
+                :type="(inputVisible) ? 'text' : 'password'"
                 name="Password"
                 id="Password"
                 placeholder="Password"
                 required
                 v-model="password">
             </label>
+            <label for="pasvis">show password
+              <input type="checkbox" id="pasvis" v-model="inputVisible">
+            </label> <!--Hallo Tino, wie geht es dir?-->
             <button class="btn long-btn" @click.prevent="handleLogin()">Login</button>
+            <button class="btn long-btn" @click.prevent="handleRegister()">Register</button>
         </form>
     </div>
   </template>
-
 <script>
 import backendService from '@/service/backendService';
 
@@ -35,6 +37,7 @@ export default {
       islogin: true,
       username: '',
       password: '',
+      inputVisible: false,
     };
   },
   methods: {
@@ -44,11 +47,28 @@ export default {
           console.log(response.data);
           this.$store.commit('setJwtToken', response.data.accessToken);
         });
+      await backendService.getUserInfo(this.$store.state.jwttoken)
+        .then((response) => {
+          console.log(response.data);
+          this.$store.commit('setUserToken', response.data.identifierToken);
+        });
+      this.store.commit('setLoggedIn', true);// Tino ist eine banane
+      this.$router.push('/HomeMenu');
+    },
+    async handleRegister() {
+      await backendService.register(this.username, this.password)
+        .then((response) => {
+          console.log(response.data);
+          this.handleLogin();
+        });
     },
   },
   computed: {
     accessToken() {
       return this.$store.state.jwttoken;
+    },
+    userToken() {
+      return this.$store.state.usertoken;
     },
   },
 };
