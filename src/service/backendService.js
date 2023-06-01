@@ -12,7 +12,7 @@ class BackendService {
   register(username, password) {
     return axios.post('https://api-meat.siefke.org/api/auth/register', {
       username,
-      password,
+      password, // hallo
     });
   }
 
