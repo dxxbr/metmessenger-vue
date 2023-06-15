@@ -17,7 +17,6 @@
 export default {
   data() {
     return {
-      islogin: false,
     };
   },
   created() {
@@ -36,6 +35,11 @@ export default {
   watch: {
     $route() {
       this.parseRoute();
+    },
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn;
     },
   },
 };

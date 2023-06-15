@@ -24,7 +24,7 @@ export default new Vuex.Store({
     },
     setLoggedIn(state, bool) {
       state.loggedIn = bool;
-    }
+    },
   },
   actions: {
   },

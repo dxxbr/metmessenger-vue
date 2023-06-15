@@ -52,7 +52,7 @@ export default {
           console.log(response.data);
           this.$store.commit('setUserToken', response.data.identifierToken);
         });
-      this.store.commit('setLoggedIn', true);// Tino ist eine banane
+      this.$store.commit('setLoggedIn', true);// Tino ist eine banane, er hat das $ vergessen
       this.$router.push('/HomeMenu');
     },
     async handleRegister() {
